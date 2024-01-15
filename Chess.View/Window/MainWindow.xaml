@@ -14,6 +14,7 @@
         Title="Chess.NET" Height="700" Width="700">
     <Window.InputBindings>
         <KeyBinding Key="N" Modifiers="Ctrl" Command="{Binding NewCommand}" />
+        <KeyBinding Key="N" Modifiers="Ctrl+Shift"   Command="{Binding New960Command}" />
         <KeyBinding Key="Z" Modifiers="Ctrl" Command="{Binding UndoCommand}" />
     </Window.InputBindings>
     <DockPanel>
@@ -27,10 +28,12 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="Game">
-                <MenuItem Header="New" Command="{Binding NewCommand}" InputGestureText="Ctrl+N">
+                <MenuItem Header="New...">
                     <MenuItem.Icon>
                         <icon:NewIcon />
                     </MenuItem.Icon>
+                    <MenuItem Header="Standard Game" Command="{Binding NewCommand}" InputGestureText="Ctrl+N"/>
+                    <MenuItem Header="Chess 960 Game" Command="{Binding New960Command}" InputGestureText="Ctrl+Shift+N"/>
                 </MenuItem>
                 <MenuItem Header="Undo" Command="{Binding UndoCommand}" InputGestureText="Ctrl+Z">
                     <MenuItem.Icon>

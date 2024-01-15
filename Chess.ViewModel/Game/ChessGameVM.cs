@@ -14,6 +14,7 @@ namespace Chess.ViewModel.Game
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Runtime.CompilerServices;
 
     /// <summary>
     /// Represents the view model of a chess game.
@@ -123,6 +124,27 @@ namespace Chess.ViewModel.Game
                     () =>
                     {
                         this.Game = this.rulebook.CreateGame();
+                        this.Board = new BoardVM(this.Game.Board);
+                        this.OnPropertyChanged(nameof(this.Status));
+                    }
+                );
+            }
+        }
+
+        /// <summary>
+        /// Gets the command that starts a new chess960 game.
+        /// </summary>
+        /// <value>The command that starts a new chess960 game.</value>
+        public GenericCommand New960Command
+        {
+            get
+            {
+                return new GenericCommand
+                (
+                    () => true,
+                    () =>
+                    {
+                        this.Game = this.rulebook.Create960Game();
                         this.Board = new BoardVM(this.Game.Board);
                         this.OnPropertyChanged(nameof(this.Status));
                     }

@@ -13,3 +13,7 @@
 * Provides a fully immutable implementation of the chess game model.
 * Provides an undo command to restore previous chess game states.
 * Provides a full code documentation.
+
+# This Project
+
+This project is my attempt to add the Chess 960 mode to this existing program. The purpose of this was to gain experience working in existing codebases. 
